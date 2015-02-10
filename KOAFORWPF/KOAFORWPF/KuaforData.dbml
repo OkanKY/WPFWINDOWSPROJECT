@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="KUAFOR" Class="KuaforDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=KAYA\MSSQLSERVERKAYA;Initial Catalog=KUAFOR;Integrated Security=True" SettingsObjectName="KOAFORWPF.Properties.Settings" SettingsPropertyName="KUAFORConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CALISAN" Member="CALISANs">
+    <Type Name="CALISAN">
+      <Column Name="CalisanID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Isim" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Soyisim" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Isbaslangic" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Cinsiyet" Type="System.Char" DbType="NChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="CALISAN_CALISANURUN" Member="CALISANURUNs" ThisKey="CalisanID" OtherKey="CalisanID" Type="CALISANURUN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CALISANURUN" Member="CALISANURUNs">
+    <Type Name="CALISANURUN">
+      <Column Name="CalisanUrunID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CalisanID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UrunID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tarih" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="CALISAN_CALISANURUN" Member="CALISAN" ThisKey="CalisanID" OtherKey="CalisanID" Type="CALISAN" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="URUN_CALISANURUN" Member="URUN" ThisKey="UrunID" OtherKey="UrunID" Type="URUN" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.URUN" Member="URUNs">
+    <Type Name="URUN">
+      <Column Name="UrunID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UrunAd" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="UrunFiyat" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Association Name="URUN_CALISANURUN" Member="CALISANURUNs" ThisKey="UrunID" OtherKey="UrunID" Type="CALISANURUN" />
+    </Type>
+  </Table>
+</Database>

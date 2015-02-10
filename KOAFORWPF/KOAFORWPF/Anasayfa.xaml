@@ -1,0 +1,207 @@
+﻿<Window x:Class="KOAFORWPF.Anasayfa"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+        Title="Anasayfa" Height="466.216" Width="1091.193" Loaded="Window_Load" ResizeMode="NoResize" IsHitTestVisible="True" IsTabStop="True" HorizontalContentAlignment="Stretch" Icon="resim/liste.jpg" WindowStyle="ThreeDBorderWindow" >
+    <Window.BorderBrush>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.BorderBrush>
+    <Grid x:Name="Grid" >
+            <Grid.Background>
+                <ImageBrush Stretch="None" ImageSource="resim\tema1.jpg" AlignmentY="Top" AlignmentX="Center"/>
+            </Grid.Background>
+        <Menu HorizontalAlignment="Left" Height="36" VerticalAlignment="Top"
+              Width="250" RenderTransformOrigin="0.507,-0.198" Margin="0,-2,0,0">
+            <MenuItem Header="Listele" Background="#FFFD0E0E" Width="90" >
+                <MenuItem Header="Calışan Listele" Click="Calisan_Listele_Click" Height="50">
+                    <MenuItem.Icon>
+                        <Image Source="resim\liste.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Ürün Listele" Click="Urun_Listele_Click" Height="50">
+                    <MenuItem.Icon>
+                        <Image Source="resim\liste2.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Yapılan İş Listele" Click="Is_Listele_Click" Height="50">
+                    <MenuItem.Icon>
+                        <Image Source="resim\liste3.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Ayarla" Background="#FF0FE6E6" Width="70"  >
+                <MenuItem Header="Calışan Ayarla" Click="Calisan_Ayarla_Click" Height="50">
+                    <MenuItem.Icon>
+                        <Image Source="resim\setting.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Ürün Ayarla" Click="Urun_Ayarla_Click" Height="50">
+                    <MenuItem.Icon>
+                        <Image Source="resim\setting2.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Yapılan İş Ayarla" Click="Is_Ayarla_Click" Height="50">
+                    <MenuItem.Icon>
+                        <Image Source="resim\setting3.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tema" Background="#FFF7AA06"  Width="90" Height="36"     >
+                <MenuItem Header="Tema1" Click="Tema1_Click" Height="40">
+                    <MenuItem.Icon>
+                        <Image Source="resim\tema1.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Tema2" Click="Tema2_Click" Height="40">
+                    <MenuItem.Icon>
+                        <Image Source="resim\tema2.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Tema3" Click="Tema3_Click" Height="40">
+                    <MenuItem.Icon>
+                        <Image Source="resim\tema3.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Tema4 " Click="Tema4_Click" Height="40">
+                    <MenuItem.Icon>
+                        <Image Source="resim\tema4.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Tema5" Click="Tema5_Click" Height="40">
+                    <MenuItem.Icon>
+                        <Image Source="resim\tema5.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="Tema6" Click="Tema5_Click" Height="40">
+                    <MenuItem.Icon>
+                        <Image Source="resim\tema6.jpg"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <TextBox x:Name="calisanBox" HorizontalAlignment="Right" Height="23" Margin="0,91,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79"/>
+        <Label x:Name="calisanLabel" Content="Calışan Sayısı" HorizontalAlignment="Right" Margin="0,65,9,0" VerticalAlignment="Top" Background="#FFE8D8D8"/>
+        <Label x:Name="urunLabel" Content="Ürun Sayısı" HorizontalAlignment="Right" Margin="0,65,108,0" VerticalAlignment="Top" RenderTransformOrigin="0,0.538" Background="#FFDEC3C3"/>
+        <TextBox x:Name="urunBox" HorizontalAlignment="Right" Height="23" Margin="0,91,108,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="68" RenderTransformOrigin="1.629,0.601"/>
+        <Label x:Name="isLabel" Content="Yapılan İş Sayısı" HorizontalAlignment="Right" Margin="0,65,194,0" VerticalAlignment="Top" Background="#FFDCC6C6" RenderTransformOrigin="1.406,0.538"/>
+        <TextBox x:Name="isBox" HorizontalAlignment="Right" Height="23" Margin="0,91,194,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93"/>
+        <Button x:Name="guncelleButton" Content="Kullanici Güncelle" Margin="0,-1,89,0" Width="123" Height="35" Click="guncelleButton_Click" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <Button x:Name="cikisButton" Content="Cıkış" HorizontalAlignment="Right" VerticalAlignment="Top" Width="89" Height="34" Click="cikisButton_Click" Background="#FFCD0707"/>
+        <DockPanel Margin="0,177,0,0">
+            <Viewbox Margin="0,10,0,0">
+                <Canvas Width="321" Height="212">
+
+                    <!-- The Viewport3D provides a rendering surface for 3-D visual content. -->
+                    <Viewport3D Name="MyAnimatedObject"
+          ClipToBounds="True" Width="321" Height="191" Canvas.Top="10">
+
+                        <!-- Defines the camera used to view the 3D object. -->
+                        <Viewport3D.Camera>
+                            <PerspectiveCamera x:Name="myPerspectiveCamera" Position="0,0,2" LookDirection="0,0,-1" 
+             FieldOfView="60" />
+                        </Viewport3D.Camera>
+
+                        <!-- The ModelVisual3D children contain the 3D models -->
+                        <Viewport3D.Children>
+
+                            <!-- Two ModelVisual3D define the lights cast in the scene. Without light, the
+                 3D object cannot be seen. Also, the direction of the lights affect shadowing. -->
+                            <ModelVisual3D>
+                                <ModelVisual3D.Content>
+                                    <DirectionalLight Color="#FFFFFF" Direction="-0.612372,-0.5,-0.612372" />
+                                </ModelVisual3D.Content>
+                            </ModelVisual3D>
+                            <ModelVisual3D>
+                                <ModelVisual3D.Content>
+                                    <DirectionalLight Color="#FFFFFF" Direction="0.612372,-0.5,-0.612372" />
+                                </ModelVisual3D.Content>
+                            </ModelVisual3D>
+                            <ModelVisual3D>
+                                <ModelVisual3D.Content>
+                                    <GeometryModel3D>
+
+                                        <!-- The geometry specifes the shape of the 3D plane. In this case, a flat sheet is created. -->
+                                        <GeometryModel3D.Geometry>
+                                            <MeshGeometry3D
+                     TriangleIndices="0,1,2 3,4,5 "
+                     Normals="0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 "
+                     TextureCoordinates="0,0 1,0 1,1 1,1 0,1 0,0 "
+                     Positions="-0.5,-0.5,0.5 0.5,-0.5,0.5 0.5,0.5,0.5 0.5,0.5,0.5 -0.5,0.5,0.5 -0.5,-0.5,0.5 " />
+                                        </GeometryModel3D.Geometry>
+
+                                        <!-- The material specifies the material applied to the plane. In this case it is a linear gradient.-->
+                                        <GeometryModel3D.Material>
+                                            <MaterialGroup>
+                                                <DiffuseMaterial>
+                                                    <DiffuseMaterial.Brush>
+                                                        <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                            <LinearGradientBrush.GradientStops>
+                                                                <GradientStop Color="Yellow" Offset="0" />
+                                                                <GradientStop Color="Red" Offset="0.25" />
+                                                                <GradientStop Color="Blue" Offset="0.75" />
+                                                                <GradientStop Color="LimeGreen" Offset="1" />
+                                                            </LinearGradientBrush.GradientStops>
+                                                        </LinearGradientBrush>
+                                                    </DiffuseMaterial.Brush>
+                                                </DiffuseMaterial>
+                                            </MaterialGroup>
+                                        </GeometryModel3D.Material>
+
+                                        <!-- The Transform specifies how to transform the 3D object. The properties of the
+                        Rotation object are animated causing the 3D object to rotate and "wobble" (see Storyboard below).-->
+                                        <GeometryModel3D.Transform>
+                                            <RotateTransform3D>
+                                                <RotateTransform3D.Rotation>
+                                                    <AxisAngleRotation3D x:Name="myAngleRotation" Axis="0,3,0" Angle="40" />
+                                                </RotateTransform3D.Rotation>
+                                            </RotateTransform3D>
+                                        </GeometryModel3D.Transform>
+                                    </GeometryModel3D>
+                                </ModelVisual3D.Content>
+                            </ModelVisual3D>
+                        </Viewport3D.Children>
+
+                        <!-- Trigger the rotation animation when the 3D object loads. -->
+                        <Viewport3D.Triggers>
+                            <EventTrigger RoutedEvent="Viewport3D.Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard>
+
+                                        <!-- This animation animates the Angle property of the AxisAngleRotation3D
+                       making the 3D object rotate from -60 degrees to 60 degrees. -->
+                                        <DoubleAnimation 
+                   Storyboard.TargetName="myAngleRotation" 
+                   Storyboard.TargetProperty="Angle" 
+                   From="-60" To="60" Duration="0:0:4" AutoReverse="True"  RepeatBehavior="Forever"/>
+
+                                        <!-- This animation animates the Axis property of the AxisAngleRotation3D
+                       making the 3D wobble as it rotates. -->
+                                        <Vector3DAnimation 
+                   Storyboard.TargetName="myAngleRotation" 
+                   Storyboard.TargetProperty="Axis" 
+                   From="0,3,0" To="1,0,1" Duration="0:0:4" AutoReverse="True"  RepeatBehavior="Forever"/>
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Viewport3D.Triggers>
+                    </Viewport3D>
+                </Canvas>
+
+            </Viewbox>
+        </DockPanel>
+        <DataGrid Name="DATA" HorizontalAlignment="Left" Margin="0,65,0,0" VerticalAlignment="Top" Height="107" Width="151"/>
+        <Label Content="En Cok Calışan Sıralaması" HorizontalAlignment="Left" Margin="0,37,0,0" VerticalAlignment="Top" Width="151" Background="#FFFFE2E2"/>
+        <DataGrid  Name="UrunDAta" HorizontalAlignment="Left" Margin="184,65,0,0" VerticalAlignment="Top" Height="107" Width="139"/>
+        <Label Content="En Cok Satılan Ürün" HorizontalAlignment="Left" Margin="184,39,0,0" VerticalAlignment="Top" Width="121" Background="#FFFFE2E2"/>
+        <Button x:Name="yenileButton" Content="Yenile" HorizontalAlignment="Right" Margin="0,0,212,0" VerticalAlignment="Top" Width="75" Height="34" Click="yenileButton_Click"/>
+        <DataGrid x:Name="FiyatData" HorizontalAlignment="Left" Margin="342,65,0,0" VerticalAlignment="Top" Height="107" Width="118"/>
+        <Label Content="En Cok Para &#xD;&#xA;Kazandıran Urun" HorizontalAlignment="Left" Margin="342,26,0,0" VerticalAlignment="Top" Width="100" Height="39" Background="#FFFFE2E2"/>
+        <TextBox x:Name="toplamFiyat" HorizontalAlignment="Left" Height="23" Margin="648,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133"/>
+        <Label Content="Toplam Kazanılan Para" HorizontalAlignment="Left" Margin="648,63,0,0" VerticalAlignment="Top" Width="133" Background="#FFDAC7C7"/>
+    </Grid>
+
+</Window>

@@ -1,0 +1,16 @@
+﻿<Window x:Class="KOAFORWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="293.657" Background="#FFCF0707" Icon="resim/save.jpg">
+    <Grid x:Name="Grid" >
+        <Grid.Background>
+            <ImageBrush Stretch="None" ImageSource="resim\tema1.jpg" AlignmentY="Top" AlignmentX="Center"/>
+        </Grid.Background>
+        <Label x:Name="KullaniciAdiText" Content="Kullanıcı Adı" HorizontalAlignment="Left" Margin="31,55,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.083,0.731" Background="Red"  Height="23"/>
+        <Label x:Name="SifreText" Content="Şifre" HorizontalAlignment="Left" Margin="31,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.639,0.509" Background="#FFFF0101" Width="75" Height="23"/>
+        <TextBox x:Name="KullaniciAdiTexBox" HorizontalAlignment="Left" Height="23" Margin="111,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox Name="SifreTexBox"  VerticalAlignment="Center" Margin="111,110,55,181" Height="28" PasswordChar="+" PreviewKeyDown="Window_PreviewKeyDown"/>
+        <Button x:Name="GirisButton" Content="Giriş" HorizontalAlignment="Left" Margin="31,188,0,0" VerticalAlignment="Top" Width="75" Background="Red" Click="GirisButton_Click" Height="23"/>
+
+    </Grid>
+</Window>

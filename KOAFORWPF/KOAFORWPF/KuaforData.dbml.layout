@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="KuaforData">
+  <DataContextMoniker Name="/KuaforDataDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d28bb2fe-87c9-4517-8a99-91243ffcc584" absoluteBounds="0.75, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/KuaforDataDataContext/CALISAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8f62d9d8-e434-4549-b872-4f1e9869063c" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="570154c7-9a76-4238-89a1-7c03fec51d33" absoluteBounds="3.5, 0.875, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/KuaforDataDataContext/CALISANURUN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcccfd03-5507-4c74-bb53-221beb868e61" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6c9ead5a-9ac7-412e-b9ef-95dd6ac3621f" absoluteBounds="0.75, 1, 2, 1.3862939453125">
+      <DataClassMoniker Name="/KuaforDataDataContext/URUN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6fb6447f-1dc0-4924-be9c-eed0f3733360" absoluteBounds="0.765, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.63544840494792); (4.5 : 4.63544840494792); (4.5 : 2.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KuaforDataDataContext/CALISAN/CALISAN_CALISANURUN" />
+      <nodes>
+        <classShapeMoniker Id="d28bb2fe-87c9-4517-8a99-91243ffcc584" />
+        <classShapeMoniker Id="570154c7-9a76-4238-89a1-7c03fec51d33" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.69314697265625); (3.5 : 1.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/KuaforDataDataContext/URUN/URUN_CALISANURUN" />
+      <nodes>
+        <classShapeMoniker Id="6c9ead5a-9ac7-412e-b9ef-95dd6ac3621f" />
+        <classShapeMoniker Id="570154c7-9a76-4238-89a1-7c03fec51d33" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
